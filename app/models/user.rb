@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   def self.search_exact(q)
     query = {
-      facets: {
+      aggs: {
         status: {
           terms: { field: :status }
         }

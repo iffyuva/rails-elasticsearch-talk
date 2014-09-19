@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def search
     search = User.search_exact(params[:q])
     @users  = search.records.to_a
-    @facets = search.response['facets']
+    @aggregations = search.response['aggregations']
 
     render :index
   end
