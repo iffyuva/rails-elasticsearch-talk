@@ -28,3 +28,7 @@ gem 'rails-html-sanitizer', '~> 1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Elastic search gem nigga!
+gem 'elasticsearch-rails', '~> 0.1.5'
+gem 'elasticsearch-model', '~> 0.1.5'
