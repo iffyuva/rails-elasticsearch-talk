@@ -17,4 +17,9 @@ class User < ActiveRecord::Base
 
     search(query: query).records
   end
+
+  def as_indexed_json(options = {})
+    status = last_login_at > 10.days.ago ? 'active' : 'stale'
+    { name: name, status: status }
+  end
 end
