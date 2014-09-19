@@ -14,3 +14,22 @@
  *= require_tree .
  *= require_self
  */
+
+#search-box {
+  margin-left: 21%;
+}
+
+.search-results {
+  padding: 20px;
+}
+
+.left-panel {
+  float: left;
+  width: 20%;
+}
+
+
+.right-panel {
+  float: right;
+  width: 80%;
+}

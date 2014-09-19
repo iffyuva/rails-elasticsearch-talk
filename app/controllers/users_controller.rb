@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   respond_to :html, :json
 
   def index
+    @users = User.none
   end
 
   def autocomplete
@@ -10,5 +11,7 @@ class UsersController < ApplicationController
   end
 
   def search
+    @users = User.search('*' + params[:q] + '*').records
+    render :index
   end
 end

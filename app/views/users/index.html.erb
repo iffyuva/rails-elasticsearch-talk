@@ -1,6 +1,24 @@
 <div class="ui-widget">
-  <label for="users">
-    Users:
-    <input id="users">
-  </label>
+  <form id="search-box" action="/users/search" method="get">
+    <label for="users">
+      Search:
+      <input id="users" name="q" value="<%= params[:q] %>">
+    </label>
+  </form>
+</div>
+
+<div class="search-results">
+  <div class="left-panel">
+  </div>
+  <div class="right-panel">
+    <h3> Results </h3>
+    <hr>
+    <ul>
+    <%- @users.each do |user| %>
+      <li>
+        <%= user.name %> (last seen: <%= user.last_login_at.to_s(:short) %>)
+      </li>
+    <%- end %>
+    </ul>
+  </div>
 </div>
