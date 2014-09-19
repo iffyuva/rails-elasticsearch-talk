@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def autocomplete
-    users = User.search(params[:term] + '*').records
+    users = User.autocomplete(params[:term])
     respond_with(users.map(&:name))
   end
 
