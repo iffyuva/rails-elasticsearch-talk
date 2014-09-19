@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :users, only: :index do
-    get :autocomplete
-    get :search
+    collection do
+      get :autocomplete
+      get :search
+    end
   end
 
   root 'users#index'
