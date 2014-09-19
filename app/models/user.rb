@@ -9,4 +9,12 @@ class User < ActiveRecord::Base
 
     search(query: query).records
   end
+
+  def self.search_exact(q)
+    query = {
+      match: { name: q }
+    }
+
+    search(query: query).records
+  end
 end
