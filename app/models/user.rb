@@ -12,10 +12,18 @@ class User < ActiveRecord::Base
 
   def self.search_exact(q)
     query = {
-      match: { name: q }
+      facets: {
+        status: {
+          terms: { field: :status }
+        }
+      },
+
+      query: {
+        match: { name: q }
+      }
     }
 
-    search(query: query).records
+    search(query)
   end
 
   def as_indexed_json(options = {})

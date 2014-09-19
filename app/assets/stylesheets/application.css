@@ -25,9 +25,13 @@
 
 .left-panel {
   float: left;
-  width: 20%;
+  width: 18%;
 }
 
+.facets {
+  padding: 10px;
+  margin: 10px;
+}
 
 .right-panel {
   float: right;

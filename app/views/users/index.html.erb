@@ -9,6 +9,17 @@
 
 <div class="search-results">
   <div class="left-panel">
+    <%- if @facets %>
+      <h3> Facets </h3>
+      <hr>
+      <%- @facets.each do |name, results| %>
+        <ul class="facets">
+          <%- results["terms"].each do |result| %>
+            <li><%= result["term"] %> (<%= result["count"] %>)</li>
+          <%- end %>
+        </ul>
+      <%- end %>
+    <%- end %>
   </div>
   <div class="right-panel">
     <h3> Results </h3>

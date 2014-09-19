@@ -11,7 +11,10 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.search_exact(params[:q])
+    search = User.search_exact(params[:q])
+    @users  = search.records.to_a
+    @facets = search.response['facets']
+
     render :index
   end
 end
