@@ -1,0 +1,64 @@
+* Rails-Elasticsearch talk (20th Sep 2014)
+** Its a beginners talk!
+** How to install elasticsearch
+   - OSX : homebrew
+   - Ubuntu : apt-get
+   - It exposes web interface at 9200
+
+** Brief introduction to elasticsearch
+   - Based on lucene: Text search engine
+   - Written in Java
+   - Search and analytics engine
+   - Follows architecture similar to db
+     + Clusters, nodes, shards, replicas
+   - Its own terminology
+     + indices, documents
+     + uses JSON
+
+** Rails and elasticsearch gems.
+   - Legacy gems: Tire, and Retire
+   - Elasticsearch official gems
+     + elasticsearch-rails
+       Instrumentation, and rake tasks
+     + elasticsearch-model
+       AR interface
+     + elasticsearch gem
+       api, and transport layers
+
+** Hooking into ActiveRecord
+   - hook into it using bunch of includes
+   - use callbacks to persist data to elasticsearch
+   - can use other solutions like sidekiq
+
+   - "/<resources>/<resource>/<id>"
+
+** ActiveRecord interface
+   - For search: .search
+     User.search
+   - For import: .import
+     User.import
+   - Custom fields using:
+     as_indexed_json
+
+** Simple auto completion, and facets example.
+   - Autocomplete user names
+   - Facets (user login status)
+** Better ways of searching
+   - Looking into elasticsearch help
+     + http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl-queries.html
+     + http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl-filters.html
+     + http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-facets.html
+     + http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations.html
+
+   - formulating custom search queries
+     + Lots of nested hashes!
+** Testing with rails.
+   - Use elasticsearch-extensions gem
+   - Start in-memory elasticsearch instance for tests
+     + Elasticsearch::Extensions::Test::Cluster.start(nodes: 1)
+     + Elasticsearch::Extensions::Test::Cluster.stop
+** Elasticsearch interface & analyzers
+   - URL interface accessible at 9200
+   - Can use any rest client to interact
+   - Default analyzers
+   - Custom analyzers
